@@ -6,6 +6,7 @@ export default function Home() {
         <div>
           <Medal />
         </div>
+        <div className=""></div>
       </div>
     </main>
   );
