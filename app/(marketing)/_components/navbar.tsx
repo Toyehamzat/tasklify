@@ -12,7 +12,11 @@ export const Navbar = () => {
           <Button size="sm" variant="outline" asChild>
             <Link href="/sign-in">Login</Link>
           </Button>
-          <Button size="sm" asChild>
+          <Button
+            className=" bg-blue-600  hover:bg-blue-900 transition"
+            size="sm"
+            asChild
+          >
             <Link href="/sign-up">Get Tasklify for free</Link>
           </Button>
         </div>
