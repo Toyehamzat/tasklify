@@ -5,6 +5,7 @@ export default function Home() {
       <div className="flex items-center justify-center flex-col">
         <div>
           <Medal />
+          <Medal />
         </div>
         <div className=""></div>
       </div>
