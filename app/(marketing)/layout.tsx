@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Marketing ",
 };
 
-export default function RootLayout({
+export default function MarketingLayout({
   children,
 }: {
   children: React.ReactNode;

@@ -28,7 +28,7 @@ export default function Home() {
           No 1 task management
         </div>
         <h1 className="text-3xl md:text-6xl  text-neutral-800 mb-6 text-center">
-          Tasklify helps teams move.
+          Tasklify helps team move.
         </h1>
         <div className="text-2xl  text-center md:text-6xl bg-gradient-to-r from-blue-600 to-fuchsia-600 text-white px-3 p-1 rounded-md pb-1 w-fit">
           Work forward.
