@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
-import { ClerkProvider } from "@clerk/nextjs";
+import { SiteConfig } from "@/config/site";
 export const metadata: Metadata = {
-  title: "platform ",
+  title: {
+    default: SiteConfig.name,
+    template: `%s | ${SiteConfig.name}`,
+  },
 };
 
 export default function ClerkLayout({
