@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SiteConfig } from "@/config/site";
+import Navbar from "./_components/Navbar";
 export const metadata: Metadata = {
   title: {
     default: SiteConfig.name,
@@ -12,5 +13,10 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <div className="h-full">{children}</div>;
+  return (
+    <div className="h-full">
+      <Navbar />
+      {children}
+    </div>
+  );
 }
