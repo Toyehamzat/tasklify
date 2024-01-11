@@ -1,3 +1,4 @@
+import { auth } from "@clerk/nextjs";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function OrganizaionPage() {
-  return <div>organization page</div>;
+  return <div>organization page!</div>;
 }
