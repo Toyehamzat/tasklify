@@ -44,8 +44,8 @@ export default function Home() {
           accomplish it all with Tasklify.
         </div>
         <Button
-          className="mt-6 bg-blue-600 p-7 shadow-md hover:bg-blue-900 transition"
-          size="lg"
+          className="mt-6 bg-blue-600 p-5 shadow-md hover:bg-blue-900 transition"
+          size="sm"
           asChild
         >
           <Link href="/sign-up">Get Taskify for free</Link>
