@@ -20,7 +20,6 @@ export default function OrganizationLayout({
           <Sidebar />
         </div>
         {children}
-        <></>
       </div>
     </main>
   );
