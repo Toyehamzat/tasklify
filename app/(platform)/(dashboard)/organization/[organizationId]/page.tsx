@@ -1,4 +1,3 @@
-import { create } from "@/actions/create-board/create-board";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs";
@@ -19,7 +18,7 @@ export default async function OrganizaionPage() {
     <div className="flex flex-col space-y-4">
       <Form />
       <div className="flex flex-col gap-y-2">
-        {boards.map((board) => (
+        {boards.map((board:any) => (
           <Board key={board.id} id={board.id} title={board.title} />
         ))}
       </div>
