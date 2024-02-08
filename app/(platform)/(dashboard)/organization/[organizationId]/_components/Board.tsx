@@ -1,5 +1,6 @@
-import { DeleteBoard } from "@/actions/delete-board";
+import { createBoard } from "@/actions/create-board";
 import { Button } from "@/components/ui/button";
+import { useAction } from "@/hooks/use-action";
 import React from "react";
 
 type BoardProps = {
@@ -8,10 +9,10 @@ type BoardProps = {
 };
 
 const Board = ({ id, title }: BoardProps) => {
-  const DeleteBoardWithId = DeleteBoard.bind(null, id);
+  
   return (
     <form
-      action={DeleteBoardWithId}
+      // action={DeleteBoardWithId}
       className="flex flex-row items-center gap-x-2"
     >
       <p className="flex-1">{title}</p>
