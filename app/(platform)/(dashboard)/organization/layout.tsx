@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteConfig } from "@/config/site";
 import { Sidebar } from "../_components/Sidebar";
+import { Separator } from "@/components/ui/separator";
 export const metadata: Metadata = {
   title: {
     default: SiteConfig.name,
