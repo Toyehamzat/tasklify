@@ -1,10 +1,7 @@
-import { Button, buttonVariants } from "@/components/ui/button";
-import { db } from "@/lib/db";
-import { auth } from "@clerk/nextjs";
+import { Separator } from "@/components/ui/separator";
 import type { Metadata } from "next";
-import Board from "./_components/Board";
-import { Form } from "./_components/form";
-import { useFormState } from "react-dom";
+import { BoardList } from "./_components/board-list";
+import { Info } from "./_components/info";
 
 export const metadata: Metadata = {
   title: "dashboard",
@@ -12,16 +9,13 @@ export const metadata: Metadata = {
 };
 
 export default async function OrganizaionPage() {
-  // const [] =useFormState(create)
-  const boards = await db.board.findMany();
   return (
-    <div className="flex flex-col space-y-4">
-      <Form />
-      <div className="flex flex-col gap-y-2">
-        {boards.map((board:any) => (
-          <Board key={board.id} id={board.id} title={board.title} />
-        ))}
-      </div>
+    <div className="w-full mb-20">
+     <Info/>
+     <Separator className="my-4"/>
+     <div className="px-2 md:px-4">
+       <BoardList/>
+     </div>
     </div>
   );
 }
