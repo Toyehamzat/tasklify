@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 export const metadata: Metadata = {
   title: "platform ",
 };
@@ -11,7 +12,10 @@ export default function PlatformLayout({
 }) {
   return (
     <ClerkProvider>
-      <div>{children}</div>
+      <div>
+        {children}
+        <Toaster />
+      </div>
     </ClerkProvider>
   );
 }
