@@ -5,6 +5,7 @@ import { Plus } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { MobileSidebar } from "./MobileSideBar";
+import { FormPopover } from "@/components/form/form-popover";
 
 function Navbar() {
   return (
@@ -14,12 +15,24 @@ function Navbar() {
         <div className="hidden md:flex">
           <Logo />
         </div>
-        <Button className="rounded-sm hidden md:block py-1.5 px-2 h-auto text-white  bg-blue-600 hover:bg-blue-900">
-          Create
-        </Button>
-        <Button className="rounded-sm block md:hidden py-1.5 px-2 h-auto bg-blue-600 hover:bg-blue-900">
-          <Plus className="h-4 w-4 text-white" />
-        </Button>
+        <FormPopover align="start" side="bottom" sideOffset={18}>
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded-sm hidden md:block h-auto  py-1.5 px-2"
+          >
+            Create
+          </Button>
+        </FormPopover>
+        <FormPopover>
+          <Button
+            variant="primary"
+            size="sm"
+            className="rounded-sm block md:hidden"
+          >
+            <Plus className="h-4 w-4" />
+          </Button>
+        </FormPopover>
       </div>
       <div className="ml-auto flex items-center gap-x-2">
         <OrganizationSwitcher
