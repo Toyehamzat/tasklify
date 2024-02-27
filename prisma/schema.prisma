@@ -10,7 +10,7 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Board {
+model board {
   id             String    @id @default(uuid())
   orgId          String
   title          String
