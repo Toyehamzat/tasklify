@@ -14,14 +14,18 @@ import { CreateBoard } from "./schema";
 // import { checkSubscription } from "@/lib/subscription";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const { userId, orgId } = auth();
+  const authInfo = auth();
 
-  if (!userId || !orgId) {
+  if (!authInfo.userId || !authInfo.orgId) {
     return {
       error: "Unauthorized",
     };
   }
 
+  // Destructuring authInfo to extract userId and orgId
+  const { userId, orgId } = authInfo;
+
+  const { title, image } = data;
   // const canCreate = await hasAvailableCount();
   // const isPro = await checkSubscription();
 
@@ -31,8 +35,6 @@ const handler = async (data: InputType): Promise<ReturnType> => {
   //       "You have reached your limit of free boards. Please upgrade to create more.",
   //   };
   // }
-
-  const { title, image } = data;
 
   const [imageId, imageThumbUrl, imageFullUrl, imageLinkHTML, imageUserName] =
     image.split("|");
