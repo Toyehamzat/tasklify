@@ -14,27 +14,15 @@ import { CreateBoard } from "./schema";
 // import { checkSubscription } from "@/lib/subscription";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
-  const authInfo = auth();
+  const { userId, orgId } = auth();
 
-  if (!authInfo.userId || !authInfo.orgId) {
+  if (!userId || !orgId) {
     return {
       error: "Unauthorized",
     };
   }
 
-  // Destructuring authInfo to extract userId and orgId
-  const { userId, orgId } = authInfo;
-
   const { title, image } = data;
-  // const canCreate = await hasAvailableCount();
-  // const isPro = await checkSubscription();
-
-  // if (!canCreate && !isPro) {
-  //   return {
-  //     error:
-  //       "You have reached your limit of free boards. Please upgrade to create more.",
-  //   };
-  // }
 
   const [imageId, imageThumbUrl, imageFullUrl, imageLinkHTML, imageUserName] =
     image.split("|");
@@ -57,7 +45,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     board = await db.board.create({
       data: {
         title,
-        orgId, // Include orgId here
+        orgId: orgId as string, // Specify the type of orgId as string
         imageId,
         imageThumbUrl,
         imageFullUrl,
@@ -65,6 +53,17 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         imageLinkHTML,
       },
     });
+
+    // if (!isPro) {
+    //   await incrementAvailableCount();
+    // }
+
+    // await createAuditLog({
+    //   entityTitle: board.title,
+    //   entityId: board.id,
+    //   entityType: ENTITY_TYPE.BOARD,
+    //   action: ACTION.CREATE,
+    // });
   } catch (error) {
     return {
       error: "Failed to create.",
@@ -76,14 +75,3 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 };
 
 export const createBoard = createSafeAction(CreateBoard, handler);
-
-// if (!isPro) {
-//   await incrementAvailableCount();
-// }
-
-// await createAuditLog({
-//   entityTitle: board.title,
-//   entityId: board.id,
-//   entityType: ENTITY_TYPE.BOARD,
-//   action: ACTION.CREATE,
-// });
