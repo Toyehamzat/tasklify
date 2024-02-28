@@ -13,5 +13,5 @@ export const CreateBoard = z.object({
     required_error: "Image is required",
     invalid_type_error: "Image must be a string",
   }),
-  orgId: z.string(), // Define orgId property
+  // orgId: z.string(), // Define orgId property
 });
