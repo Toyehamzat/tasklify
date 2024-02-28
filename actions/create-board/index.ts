@@ -57,7 +57,7 @@ const handler = async (data: InputType): Promise<ReturnType> => {
     board = await db.board.create({
       data: {
         title,
-        orgId,
+        orgId, // Include orgId here
         imageId,
         imageThumbUrl,
         imageFullUrl,
@@ -65,17 +65,6 @@ const handler = async (data: InputType): Promise<ReturnType> => {
         imageLinkHTML,
       },
     });
-
-    // if (!isPro) {
-    //   await incrementAvailableCount();
-    // }
-
-    // await createAuditLog({
-    //   entityTitle: board.title,
-    //   entityId: board.id,
-    //   entityType: ENTITY_TYPE.BOARD,
-    //   action: ACTION.CREATE,
-    // });
   } catch (error) {
     return {
       error: "Failed to create.",
@@ -87,3 +76,14 @@ const handler = async (data: InputType): Promise<ReturnType> => {
 };
 
 export const createBoard = createSafeAction(CreateBoard, handler);
+
+// if (!isPro) {
+//   await incrementAvailableCount();
+// }
+
+// await createAuditLog({
+//   entityTitle: board.title,
+//   entityId: board.id,
+//   entityType: ENTITY_TYPE.BOARD,
+//   action: ACTION.CREATE,
+// });
