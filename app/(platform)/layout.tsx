@@ -12,7 +12,7 @@ export default function PlatformLayout({
 }) {
   return (
     <ClerkProvider>
-      <div>
+      <div className="h-full">
         {children}
         <Toaster />
       </div>
