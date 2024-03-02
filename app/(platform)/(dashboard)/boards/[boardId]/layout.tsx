@@ -3,7 +3,7 @@ import { auth } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { notFound, redirect } from "next/navigation";
 import { title } from "process";
-import BoardNavBar from "../_component/BoardNavBar";
+import BoardNavBar from "./_component/BoardNavBar";
 
 export async function generateMetadata({
   params,
