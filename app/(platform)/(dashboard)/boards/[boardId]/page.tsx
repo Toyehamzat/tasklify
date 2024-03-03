@@ -1,7 +1,47 @@
-import React from "react";
+import { auth } from "@clerk/nextjs";
+import { redirect } from "next/navigation";
 
-function boardIdPage() {
-  return <div className="h-full">boardIdPage</div>;
+import { db } from "@/lib/db";
+
+import { ListContainer } from "./_component/listContainer";
+
+interface BoardIdPageProps {
+  params: {
+    boardId: string;
+  };
 }
 
-export default boardIdPage;
+const BoardIdPage = async ({ params }: BoardIdPageProps) => {
+  const { orgId } = auth();
+
+  if (!orgId) {
+    redirect("/select-org");
+  }
+
+  const lists = await db.list.findMany({
+    where: {
+      boardId: params.boardId,
+      board: {
+        orgId,
+      },
+    },
+    include: {
+      cards: {
+        orderBy: {
+          order: "asc",
+        },
+      },
+    },
+    orderBy: {
+      order: "asc",
+    },
+  });
+
+  return (
+    <div className="p-4 h-full overflow-x-auto">
+      <ListContainer boardId={params.boardId} data={lists} />
+    </div>
+  );
+};
+
+export default BoardIdPage;
