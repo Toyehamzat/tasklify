@@ -8,8 +8,7 @@ import { useState, useRef, ElementRef } from "react";
 import { useAction } from "@/hooks/use-action";
 import { updateList } from "@/actions/update-list.tsx";
 import { FormInput } from "@/components/form/form-input";
-
-// import { ListOptions } from "./list-options";
+import { ListOptions } from "./ListOptions";
 
 interface ListHeaderProps {
   data: List;
@@ -76,7 +75,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
   return (
     <div className="pt-2 px-2 text-sm font-semibold flex justify-between items-start- gap-x-2">
       {isEditing ? (
-        <form ref={formRef} action={handleSubmit} className="flex-1 px-[2px]">
+        <form ref={formRef} action={handleSubmit} className="flex-1 px-[1px]">
           <input hidden id="id" name="id" value={data.id} />
           <input hidden id="boardId" name="boardId" value={data.boardId} />
           <FormInput
@@ -97,10 +96,7 @@ export const ListHeader = ({ data }: ListHeaderProps) => {
           {title}
         </div>
       )}
-      {/* <ListOptions
-        onAddCard={onAddCard}
-        data={data}
-      /> */}
+      <ListOptions onAddCard={() => {}} data={data} />
     </div>
   );
 };
