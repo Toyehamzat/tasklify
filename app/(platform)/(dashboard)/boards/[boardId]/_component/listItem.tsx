@@ -12,7 +12,7 @@ interface ListItemProps {
 export const ListItem = ({ id, index, data }: ListItemProps) => {
   return (
     <ListWrapper>
-      <div className="w-full rounded-md shadow-md bg-[#f1f2f4] pb-2">
+      <div className="w-full rounded-md shadow-md bg-[#f1f2f4] pb-1">
         <ListHeader data={data} />
       </div>
     </ListWrapper>
