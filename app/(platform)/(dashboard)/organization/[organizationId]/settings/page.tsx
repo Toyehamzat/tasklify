@@ -3,11 +3,12 @@ import React from "react";
 
 function SettingsPage() {
   return (
-    <div className="w-full h-full">
+    <div className="w-auto h-full">
       <OrganizationProfile
         appearance={{
           elements: {
             rootBox: {
+              border: "none",
               boxShadow: "none",
               width: "100%",
               height: "100%",
